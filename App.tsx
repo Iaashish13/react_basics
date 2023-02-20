@@ -11,7 +11,7 @@ export default function App() {
     </View>
   ); 
 }
-const CustomButton = styled(Button)`
+const CustomButton = styled(Button)` bra
   display: inline-block;
   color: palevioletred;
   font-size: 1em;
