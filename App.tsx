@@ -1,15 +1,41 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Button,
+  Platform,
+  StatusBar,
+  SafeAreaView,
+} from "react-native";
 import styled from "styled-components/native";
+import {
+  useFonts as useOswald,
+  Oswald_400Regular,
+} from "@expo-google-fonts/oswald";
+import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
+import RestaurantScreen from "./src/features/restaurant/screen/RestaurantScreen";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+
+const isAndroid = Platform.OS === "android";
 export default function App() {
+  const [oswaldLoaded] = useOswald({ Oswald_400Regular });
+  const [latoLoaded] = useLato({ Lato_400Regular });
+  if (!oswaldLoaded || !latoLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <CustomButton title="Hii" />
-      <StatusBar style="auto" />
-    </View>
-  ); 
+    <>
+    <SafeAreaView style={{flex:1,marginTop:StatusBar.currentHeight}}>
+      <View>
+        <RestaurantScreen />
+
+        {/* <CustomButton title="Hii" /> */}
+      </View>
+    </SafeAreaView>
+    <ExpoStatusBar/>
+    </>
+   
+  );
 }
 const CustomButton = styled(Button)` bra
   display: inline-block;
