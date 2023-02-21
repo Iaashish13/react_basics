@@ -19,8 +19,10 @@ export default RestaurantInfo;
 
 const TitleText = styled(Text)`
   padding: 10px;
-  color: ${(props)=>props.theme.colors.ui.red};
+  color: ${(props)=>props.theme.colors.ui.secondary};
   fontweight: bold;
+  font-family:${(props)=>props.theme.fonts.heading}
+  font-size:${(props)=>props.theme.fontSizes.body}
 `;
 const RestroCard = styled(Card)`
   padding: 20px;

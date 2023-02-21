@@ -1,5 +1,5 @@
 import { Button, StatusBar, SafeAreaView } from "react-native";
-import styled from "styled-components/native";
+
 import { ThemeProvider } from "styled-components/native";
 import {
   useFonts as useOswald,
@@ -27,13 +27,3 @@ export default function App() {
     </>
   );
 }
-const CustomButton = styled(Button)` bra
-  display: inline-block;
-  color: palevioletred;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-  display: block;
-`;

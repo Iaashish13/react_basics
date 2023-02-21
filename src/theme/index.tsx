@@ -1,4 +1,4 @@
-import { fonts } from "./fonts";
+import { fonts,fontSizes,fontWeights } from "./fonts";
 import { spacing } from "./spacing";
 import {sizes} from './sizes'
 import { colors } from "./colors";
@@ -8,4 +8,7 @@ export const theme={
     spacing,
     sizes,
     colors,
+    fontSizes,
+    fontWeights
+    
 };
