@@ -1,13 +1,14 @@
 
 import { View, Text, SafeAreaView } from "react-native";
 import { Searchbar } from "react-native-paper";
+import RestaurantInfo from "../component/RestaurantInfo";
 
 function RestaurantScreen() {
   return (
     <SafeAreaView>
       <View>
         <Searchbar value={""} />
-        <Text>Open up App.x to start working on your app!</Text>
+        <RestaurantInfo/>
       </View>
     </SafeAreaView>
   );
