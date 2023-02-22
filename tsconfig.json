@@ -3,6 +3,12 @@
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
     "types": ["react-native", "jest", "styled-components-react-native"],
-    "strict": true
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "tests": ["tests/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["./assets/*"]
+    }
   }
 }

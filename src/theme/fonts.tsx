@@ -8,5 +8,6 @@ export const fontWeights = {
   bold: 700,
 };
 export const fontSizes = {
-  body: "16px",
+  body: "18px",
+  bodySmall: "15px",
 };

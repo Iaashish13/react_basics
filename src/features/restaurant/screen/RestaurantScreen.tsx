@@ -1,4 +1,3 @@
-import { View, Text, SafeAreaView } from "react-native";
 import { Searchbar } from "react-native-paper";
 import RestaurantInfo from "../component/RestaurantInfo";
 import styled from "styled-components/native";
@@ -14,6 +13,8 @@ function RestaurantScreen() {
 
 const SearchContainer = styled.View`
   padding: 20px;
+  
 `;
+
 
 export default RestaurantScreen;
