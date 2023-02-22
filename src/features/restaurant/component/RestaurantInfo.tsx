@@ -3,6 +3,9 @@ import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 import star from "./star";
+import React from "react";
+import { Spacer } from "../../../components/spacer";
+
 
 function RestaurantInfo({ restaurant = {} }) {
   const rating = 4;
@@ -24,6 +27,10 @@ function RestaurantInfo({ restaurant = {} }) {
         </LocationView>
       </RowView>
       <Address>Some random street</Address>
+      <Spacer position="left" size="large">
+      <Text>Yooo</Text>
+      </Spacer>
+   
     </RestroCard> 
   );
 }
