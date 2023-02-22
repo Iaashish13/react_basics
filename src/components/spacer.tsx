@@ -18,11 +18,7 @@ const positionVariant = {
 type Position = keyof typeof positionVariant;
 type Size = keyof typeof sizeVariant;
 
-const getVariant = (
-  position: Position,
-  size: Size,
-  theme: any
-) => {
+const getVariant = (position: Position, size: Size, theme: any) => {
   const sizeIndex = sizeVariant[size];
   const value = theme.spacing[sizeIndex];
   return `${positionVariant[position]}:${value}`;
@@ -41,5 +37,5 @@ type SpacerProps = {
 export const Spacer = ({ position, size, children }: SpacerProps) => {
   const theme = useTheme();
   const variant = getVariant(position, size, theme);
-  return <SpacerView variant={variant} >{children}</SpacerView>;
+  return <SpacerView variant={variant}>{children}</SpacerView>;
 };

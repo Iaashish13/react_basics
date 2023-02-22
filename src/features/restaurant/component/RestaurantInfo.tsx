@@ -5,6 +5,7 @@ import { SvgXml } from "react-native-svg";
 import star from "./star";
 import React from "react";
 import { Spacer } from "../../../components/spacer";
+import {Texts} from '../../../components/TextComponent';
 
 
 function RestaurantInfo({ restaurant = {} }) {
@@ -17,7 +18,7 @@ function RestaurantInfo({ restaurant = {} }) {
           uri: "https://www.thespruceeats.com/thmb/UnVh_-znw7ikMUciZIx5sNqBtTU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/steamed-momos-wontons-1957616-hero-01-1c59e22bad0347daa8f0dfe12894bc3c.jpg",
         }}
       />
-      <TitleText>Momo</TitleText>
+      <Texts variant="body">Momo</Texts>
       <RowView>
         {ratingArray.map(() => (
           <SvgXml xml={star} width={20} height={20}></SvgXml>
@@ -27,7 +28,7 @@ function RestaurantInfo({ restaurant = {} }) {
         </LocationView>
       </RowView>
       <Address>Some random street</Address>
-      <Spacer position="left" size="large">
+      <Spacer position="left" size="small">
       <Text>Yooo</Text>
       </Spacer>
    
