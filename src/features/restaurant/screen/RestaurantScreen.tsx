@@ -36,7 +36,7 @@ const data: RestaurnatInfoProps[] = [
       "https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=2000",
   },
 ];
-function RestaurantScreen() {
+const RestaurantScreen=()=> {
   const renderItem = ({ item }: { item: RestaurnatInfoProps }) => (
     <RestaurantInfo {...item} />
   );
@@ -47,6 +47,7 @@ function RestaurantScreen() {
         data={data}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
       />
 
       {/* <RestaurantInfo /> */}

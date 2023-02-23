@@ -38,7 +38,7 @@ const  RestaurantInfo=(data:RestaurnatInfoProps)=> {
 
 export default RestaurantInfo;
 
-const TitleText = styled(Text)`
+const TitleText = styled(Text)` 
   margin-top:15px;
   margin-bottom:5px;
   color: ${(props) => props.theme.colors.ui.secondary};
