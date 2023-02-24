@@ -1,3 +1,5 @@
+import React from "react";
+
 import { StatusBar, SafeAreaView, Text } from "react-native";
 
 import { ColorValue } from "react-native";
@@ -13,6 +15,8 @@ import { theme } from "./src/theme";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { Provider } from "react-redux";
+import stored from "./src/store/store";
 
 // Icons for Bottom Tab Navigation
 const homeIcon = ({ color }: { color: ColorValue | number }) => (
@@ -38,39 +42,38 @@ export default function App() {
   }
   return (
     <>
-      <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
-        <ThemeProvider theme={theme}>
-          <NavigationContainer>
-            <Tab.Navigator>
-              <Tab.Screen
-                name="Restaurnts"
-                options={{
-                  // headerShown: false,
-                  tabBarIcon: homeIcon,
-                }}
-                component={RestaurantScreen}
-              />
-              <Tab.Screen
-                name="Maps"
-                options={{
-                  // headerShown: false,
-                  tabBarIcon: mapsIcon,
-                }}
-                component={Maps}
-              />
-              <Tab.Screen
-                name="Settings"
-                options={{
-                  // headerShown: false,
-                  tabBarIcon: settingsIcon,
-                }}
-                component={Settings}
-              />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </ThemeProvider>
-      </SafeAreaView>
-      <ExpoStatusBar />
+      <Provider store={stored}>
+        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
+          <ThemeProvider theme={theme}>
+            <NavigationContainer>
+              <Tab.Navigator>
+                <Tab.Screen
+                  name="Restaurnts"
+                  options={{
+                    tabBarIcon: homeIcon,
+                  }}
+                  component={RestaurantScreen}
+                />
+                <Tab.Screen
+                  name="Maps"
+                  options={{
+                    tabBarIcon: mapsIcon,
+                  }}
+                  component={Maps}
+                />
+                <Tab.Screen
+                  name="Settings"
+                  options={{
+                    tabBarIcon: settingsIcon,
+                  }}
+                  component={Settings}
+                />
+              </Tab.Navigator>
+            </NavigationContainer>
+          </ThemeProvider>
+        </SafeAreaView>
+        <ExpoStatusBar />
+      </Provider>
     </>
   );
 }

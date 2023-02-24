@@ -1,59 +1,59 @@
-import { Searchbar } from "react-native-paper";
-import RestaurantInfo from "../component/RestaurantInfo";
-import styled from "styled-components/native";
-import { FlatList, Text } from "react-native";
-import { RestaurnatInfoProps } from "../types/RestaurantTypes";
+import { useEffect } from "react";
+import { AnyAction } from "redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const data: RestaurnatInfoProps[] = [
-  {
-    id: 1,
-    name: "Lumbini Restaurant",
-    image:
-      "https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=2000",
-  },
-  {
-    id: 2,
-    name: "Pokhara Restro",
-    image:
-      "https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=2000",
-  },
-  {
-    id: 3,
-    name: "Chiyawala",
-    image:
-      "https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=2000",
-  },
-  {
-    id: 4,
-    name: "Jhir Sekuwa",
-    image:
-      "https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=2000",
-  },
-  {
-    id: 5,
-    name: "Spice Restro",
-    image:
-      "https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=2000",
-  },
-];
-const RestaurantScreen=()=> {
-  const renderItem = ({ item }: { item: RestaurnatInfoProps }) => (
-    <RestaurantInfo {...item} />
+import { ThunkDispatch } from "redux-thunk";
+
+import { Text, FlatList } from "react-native";
+import { Searchbar } from "react-native-paper";
+
+import styled from "styled-components/native";
+
+import {  RestroModel } from "../types/RestaurantTypes";
+
+import RestaurantInfo from "../component/RestaurantInfo";
+import { fetchRestroList } from "../../../store/restro.slice";
+import { RootState } from "../../../store/store";
+
+
+const RestaurantScreen = () => {
+  const dispatch: ThunkDispatch<RootState, undefined, AnyAction> =
+    useDispatch();
+  const { loading, restroList, error } = useSelector(
+    (state: RootState) => state.restro
   );
+
+  useEffect(() => {
+ 
+    
+    dispatch(fetchRestroList());
+
+  }, []);
+
+  const renderItem = ({ item }: { item: RestroModel }) => (
+    <RestaurantInfo key={item.id.toString()} {...item} />
+  );
+
   return (
     <SearchContainer>
       <Searchbar value={""} />
+      {loading && <Text>Loading...</Text>}
       <FlatList
-        data={data}
-        keyExtractor={(item) => item.id.toString()}
+
+    
+        data={restroList}
+        keyExtractor={(item,index) => {
+          return index.toString();
+        }}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
       />
+      {error && <Text>{error}</Text>}
 
       {/* <RestaurantInfo /> */}
     </SearchContainer>
   );
-}
+};
 
 const SearchContainer = styled.View`
   padding: 20px;

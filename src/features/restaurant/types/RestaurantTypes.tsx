@@ -6,3 +6,11 @@ export interface RestaurnatInfoProps  {
     isOpened?: boolean;
     image: string;
 };
+
+export interface RestroModel{
+    id: number;
+    name: string;
+    location?: string;
+    rating?: number;
+    
+}

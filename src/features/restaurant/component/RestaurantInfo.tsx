@@ -6,17 +6,17 @@ import star from "./star";
 
 import { Spacer } from "../../../components/spacer";
 import { Texts } from "../../../components/TextComponent";
-import { RestaurnatInfoProps } from "../types/RestaurantTypes";
+import { RestaurnatInfoProps, RestroModel } from "../types/RestaurantTypes";
 
-const  RestaurantInfo=(data:RestaurnatInfoProps)=> {
+const  RestaurantInfo=(data:RestroModel)=> {
 
   const rating = 4;
   const ratingArray = Array.from(Array(Math.floor(rating)));
   return (
-    <RestroCard>
+    <RestroCard key={data.id}>
       <Card.Cover
         source={{
-          uri: data?.image,
+          uri: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&w=1000&q=80',
         }}
       />
       <Texts variant="body">{data.name}</Texts>
@@ -47,9 +47,9 @@ const TitleText = styled(Text)`
   font-size:${(props) => props.theme.fontSizes.body}
 `;
 // copy with method like flutter to exchange property
-const TitleText1 = styled(TitleText)`
-  font-size: 14px;
-`;
+// const TitleText1 = styled(TitleText)`
+//   font-size: 14px;
+// `;
 const Address = styled(Text)`
   color: ${(props) => props.theme.colors.ui.secondary};
   font-family:${(props) => props.theme.fonts.body}
