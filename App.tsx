@@ -17,6 +17,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Provider } from "react-redux";
 import stored from "./src/store/store";
+import UserScreen from "./src/features/restaurant/screen/UserScreen";
+
+import MainNavigation from "./src/routing/MainNavigation";
 
 // Icons for Bottom Tab Navigation
 const homeIcon = ({ color }: { color: ColorValue | number }) => (
@@ -48,23 +51,25 @@ export default function App() {
             <NavigationContainer>
               <Tab.Navigator>
                 <Tab.Screen
-                  name="Restaurnts"
+                  name="Restro"
                   options={{
                     tabBarIcon: homeIcon,
+                    headerShown: false,
                   }}
-                  component={RestaurantScreen}
+                  component={MainNavigation}
                 />
                 <Tab.Screen
-                  name="Maps"
+                  name="Users"
                   options={{
                     tabBarIcon: mapsIcon,
                   }}
-                  component={Maps}
+                  component={RestaurantScreen}
                 />
                 <Tab.Screen
                   name="Settings"
                   options={{
                     tabBarIcon: settingsIcon,
+                    headerShown: false,
                   }}
                   component={Settings}
                 />

@@ -21,7 +21,7 @@ export const fetchRestroList = createAsyncThunk(
       const response = await axios.get(
         "http://192.168.1.112:7000/api/v1/resort/"
       );
-      console.log(response.data);
+  
       return response.data;
     } catch (error) {
       console.log(error);

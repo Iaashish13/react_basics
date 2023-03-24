@@ -6,14 +6,14 @@ import star from "./star";
 
 import { Spacer } from "../../../components/spacer";
 import { Texts } from "../../../components/TextComponent";
-import { RestaurnatInfoProps, RestroModel } from "../types/RestaurantTypes";
+import {  RestroModel } from "../types/RestaurantTypes";
 
-const  RestaurantInfo=(data:RestroModel)=> {
+const  RestaurantInfo=(data:RestroModel,)=> {
 
   const rating = 4;
   const ratingArray = Array.from(Array(Math.floor(rating)));
   return (
-    <RestroCard key={data.id}>
+    <RestroCard key={data.id.toString()}>
       <Card.Cover
         source={{
           uri: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&w=1000&q=80',
