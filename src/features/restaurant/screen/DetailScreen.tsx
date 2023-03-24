@@ -1,9 +1,14 @@
 import React from 'react'
 import { Text } from 'react-native'
+import { RestroModel } from '../types/RestaurantTypes'
 
-const DetailScreen = () => {
+import type {Route} from '@react-navigation/native'
+
+
+const DetailScreen = ({route}:any) => {
   return (
-    <Text>Details Screen</Text>
+    <Text>{route.params.item.id}</Text>
+   
   )
 }
 

@@ -17,7 +17,7 @@ const RestaurantStackScreen = () => {
           headerShown: false,
         }}
       />
-      <RestaurantStack.Screen name="Details" component={DetailScreen} />
+      <RestaurantStack.Screen name="Details"  component={DetailScreen}  />
     </RestaurantStack.Navigator>
   );
 };
